@@ -196,7 +196,7 @@ ggboxplot <- function(data, x, y, combine = FALSE, merge = FALSE,
 ggboxplot_core <- function(data, x, y,
                       color = "black", fill = "white", palette = NULL,
                       linetype = "solid", size = NULL, width = 0.7,  notch = FALSE,
-                      outlier.shape = 19,
+                      outlier.shape = NULL,
                       title = NULL, xlab = NULL, ylab = NULL,
                       bxp.errorbar = FALSE, bxp.errorbar.width = 0.4,
                       add = "none", add.params = list(),
@@ -206,7 +206,7 @@ ggboxplot_core <- function(data, x, y,
 {
 
   if(!is.factor(data[[x]])) data[[x]] <- as.factor(data[[x]])
-  if("jitter" %in% add) outlier.shape <- NA
+#  if("jitter" %in% add) outlier.shape <- NA
 
   p <- ggplot(data, create_aes(list(x = x, y = y)))
   if(bxp.errorbar){
